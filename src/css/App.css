@@ -1,0 +1,56 @@
+.wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 20px;
+}
+
+.display-text-center {
+  z-index: 100;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 24px;
+  font-family: Impact;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+.image-tile {
+  max-width: 200px;
+}
+
+#display-text-top {
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  width: 100%;
+}
+
+#display-text-bottom {
+  position: absolute;
+  bottom: 10px;
+  left: 0px;
+  width: 100%;
+}
+
+/********** Preview Component **********/
+#uploadImageScale img {
+  position: relative;
+  max-width: 50%;
+}
+
+#text_top {
+  z-index: 100;
+  position: absolute;
+  left: 110px;
+  top: 10px;
+}
+
+#text_bottom {
+  z-index: 100;
+  position: absolute;
+  left: 90px;
+  bottom: 25px;
+}
+
+.preview-image {
+  position: relative;
+  width: 100%;
+}

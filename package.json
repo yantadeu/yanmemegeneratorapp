@@ -1,0 +1,23 @@
+{
+  "name": "yan-d3-memegenerator-app",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-dropzone": "^10.1.4",
+    "react-router-dom": "^5.0.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.87.1",
+    "superagent": "^5.0.5",
+    "react-scripts": "^3.0.1",
+    "react-app-env": "^1.2.3"
+  },
+  "scripts": {
+    "start": "react-app-env start",
+    "build": "react-app-env build",
+    "test": "react-app-env test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
