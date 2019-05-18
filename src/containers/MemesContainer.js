@@ -5,9 +5,11 @@ import EditForm from '../EditForm'
 import Preview from '../Preview'
 import { Route, Redirect, Switch } from 'react-router-dom'
 import axios from 'axios'
+import url_api from '../url_api'
 
 
 class MemesContainer extends React.Component {
+
   constructor(props){
     super(props)
     this.state = {
@@ -17,13 +19,13 @@ class MemesContainer extends React.Component {
   }
 
   componentDidMount(){
-    const URL = process.env.API_HOST + '/api/v1/memes';
+    const URL = url_api + '/api/v1/memes';
     axios.get(URL)
       .then(res => { this.setState({ memes: res.data }) })
   }
 
   handleAddMeme(meme){
-    axios.post(process.env.API_HOST + '/api/v1/memes', {
+    axios.post(url_api + '/api/v1/memes', {
       image_url: meme.image_url,
       text_top: meme.text_top,
       text_bottom: meme.text_bottom
@@ -37,7 +39,7 @@ class MemesContainer extends React.Component {
   }
 
   handleEditMeme(meme){
-    axios.patch(process.env.API_HOST + `/api/v1/memes/${meme.id}`, {
+    axios.patch(url_api + `/api/v1/memes/${meme.id}`, {
       image_url: meme.image_url,
       text_top: meme.text_top,
       text_bottom: meme.text_bottom
@@ -56,7 +58,7 @@ class MemesContainer extends React.Component {
   }
 
   handleDeleteMeme(id){
-    axios.delete(process.env.API_HOST + `/api/v1/memes/${id}`)
+    axios.delete(url_api + `/api/v1/memes/${id}`)
     .then(res => {
       const updatedMemes = this.state.memes.filter(meme => meme.id !== id)
       this.setState({memes: updatedMemes})

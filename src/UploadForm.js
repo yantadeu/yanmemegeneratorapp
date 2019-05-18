@@ -3,9 +3,8 @@ import Dropzone from 'react-dropzone'
 import request from 'superagent'
 import { Grid, Input, Form, Button} from 'semantic-ui-react'
 
-
-const CLOUDINARY_UPLOAD_PRESET = 'dmtif1gy';
-const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/hellosylvee/image/upload'
+const CLOUDINARY_UPLOAD_PRESET = 'yzgn4oob';
+const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/devgo/image/upload'
 
 class UploadForm extends Component {
   constructor(props) {
@@ -75,7 +74,7 @@ class UploadForm extends Component {
         <div className="row">
           <div className="column padding-reset">
             <Grid centered>
-              <Grid.Row container centered><br/><h1>Create An emeM Meme!</h1></Grid.Row>
+              <Grid.Row container centered><br/><h1>Create An Meme!</h1></Grid.Row>
                 <Grid.Row verticalAlign='middle' centered>
                   <Form onSubmit={this.handleSubmit.bind(this)}>
                     <Grid centered>
@@ -83,7 +82,10 @@ class UploadForm extends Component {
                       multiple={false}
                       accept="image/*"
                       onDrop={this.onImageDrop.bind(this)}>
-                      <p>Drop an image or click to select a file to upload.</p>
+                      <div {...getRootProps()}>
+                        <p>Drop files here, or click to select files</p>
+                        <input {...getInputProps()} />
+                      </div>
                     </Dropzone>
                     </Grid><br/><br/><br/>
                     <Grid centered>
