@@ -82,10 +82,7 @@ class UploadForm extends Component {
                       multiple={false}
                       accept="image/*"
                       onDrop={this.onImageDrop.bind(this)}>
-                      <div {...getRootProps()}>
                         <p>Drop files here, or click to select files</p>
-                        <input {...getInputProps()} />
-                      </div>
                     </Dropzone>
                     </Grid><br/><br/><br/>
                     <Grid centered>
