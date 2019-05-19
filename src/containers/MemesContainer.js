@@ -72,26 +72,26 @@ class MemesContainer extends React.Component {
 
     return(
         <div>
-          <Switch>
+          <div>
             <Route path="/memes/:id/edit" render={({match}) => {
-              const meme = this.state.memes.find(meme => meme.id == match.params.id)
+              const meme = this.state.memes.find(meme => meme.id === match.params.id)
               return < EditForm meme={meme} onEdit={this.handleEditMeme.bind(this)} />}}
             />
             <Route
-                exact path='/memes'
+                path='/memes'
                 render={() => <DisplayAllMemesInTable memes={this.state.memes}/>}
             />
             <Route
-                exact
+
                 path='/memes/new'
                 render={() => <UploadForm onSubmit={this.handleAddMeme.bind(this)} />}
             />
             <Route
-                exact
+
                 path='/memes/preview'
                 render={ () => <Preview meme={this.state.memes.slice(-1)[0]} onDelete={this.handleDeleteMeme.bind(this)} /> }
             />
-          </Switch>
+          </div>
           {redirectToPreview}
         </div>
     )

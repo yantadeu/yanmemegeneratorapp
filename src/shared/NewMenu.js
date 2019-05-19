@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
+
 
 export default class NewMenu extends Component {
-  state = { activeItem: 'home' }
+  state = { activeItem: 'home'}
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
