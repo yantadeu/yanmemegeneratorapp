@@ -25,7 +25,7 @@
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 .image-tile {
-  max-width: 200px;
+  max-width: 200px !important;
 }
 
 #display-text-top {
