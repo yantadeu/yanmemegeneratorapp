@@ -3,21 +3,6 @@ import { Link } from 'react-router-dom'
 import { Grid, Button } from 'semantic-ui-react'
 import { Redirect } from 'react-router-dom'
 
-state = {
-  redirect: false
-}
-setRedirect = () => {
-  this.setState({
-    redirect: true
-  })
-}
-renderRedirect = () => {
-  if (this.state.redirect) {
-    return <Redirect to='/target' />
-  }
-}
-
-
 const Preview = (props) => {
   function handleDelete(){
     props.onDelete(props.meme.id)
