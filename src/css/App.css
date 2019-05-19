@@ -70,5 +70,5 @@
 
 .preview-image {
   position: relative;
-  max-width: 500px;
+  max-width: 500px !important;
 }
