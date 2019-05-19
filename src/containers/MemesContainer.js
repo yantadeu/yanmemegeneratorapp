@@ -87,7 +87,6 @@ class MemesContainer extends React.Component {
                 render={() => <UploadForm onSubmit={this.handleAddMeme.bind(this)} />}
             />
             <Route
-
                 path='/memes/preview'
                 render={ () => <Preview meme={this.state.memes.slice(-1)[0]} onDelete={this.handleDeleteMeme.bind(this)} /> }
             />
