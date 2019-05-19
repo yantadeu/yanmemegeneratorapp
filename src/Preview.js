@@ -12,7 +12,7 @@ const Preview = (props) => {
     <div>
       <Grid centered className="bottom-margin">
         <Grid.Row container centered><br/>
-            <h1 className="top-margin">PREVIEW D3 MEME</h1>
+            <h2 className="top-margin  ui dividing header"><br/>PREVIEW D3 MEME</h2>
           </Grid.Row>
           <Grid.Row verticalAlign='middle' centered>
             <div className="wrapper">
