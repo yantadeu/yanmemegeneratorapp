@@ -72,7 +72,7 @@ class MemesContainer extends React.Component {
 
     return(
         <div>
-          <div>
+          <Switch>
             <Route path="/memes/:id/edit" render={({match}) => {
               const meme = this.state.memes.find(meme => meme.id === match.params.id)
               return < EditForm meme={meme} onEdit={this.handleEditMeme.bind(this)} />}}
@@ -91,7 +91,7 @@ class MemesContainer extends React.Component {
                 path='/memes/preview'
                 render={ () => <Preview meme={this.state.memes.slice(-1)[0]} onDelete={this.handleDeleteMeme.bind(this)} /> }
             />
-          </div>
+          </Switch>
           {redirectToPreview}
         </div>
     )
