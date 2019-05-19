@@ -14,6 +14,7 @@ class UploadForm extends Component {
       uploadedFileCloudinaryUrl: '',
       text_top: '',
       text_bottom: '',
+      imageNotLoaded: true,
       isLoadingImage: false,
       isLoading: false,
     }
@@ -40,7 +41,8 @@ class UploadForm extends Component {
       if (response.body.secure_url !== '') {
         this.setState({
           uploadedFileCloudinaryUrl: response.body.secure_url,
-          isLoadingImage: false
+          isLoadingImage: false,
+          imageNotLoaded: false
         })
       }else{
         // this.setState({
@@ -83,7 +85,9 @@ class UploadForm extends Component {
           <div className="row">
             <div className="column padding-reset top-margin">
               <Grid centered>
-                <Grid.Row container centered><br/><h1 className="top-margin">Create An Meme for D3 :)</h1></Grid.Row>
+                <Grid.Row container centered><br/>
+                <h2 className="top-margin ui dividing header">Create An Meme for D3 :)</h2>
+                </Grid.Row>
                 <Grid.Row verticalAlign='middle' centered>
                   <Form onSubmit={this.handleSubmit.bind(this)}>
                     <Grid centered>
@@ -96,17 +100,17 @@ class UploadForm extends Component {
                     </Grid><br/><br/><br/>
                     <Grid centered>
                       <Form.Field>
-                        <label>Add top text</label>
-                        <Input placeholder='enter top text' type="text" onChange={this.handleInputChangeTop.bind(this)}/><br/>
+                        <label>Add Top Text</label>
+                        <Input className="form-control" placeholder='write top text' type="text" onChange={this.handleInputChangeTop.bind(this)}/><br/>
                       </Form.Field>
                       <Form.Field>
-                        <label>Add bottom text</label>
-                        <Input placeholder='enter bottom text' type="text" onChange={this.handleInputChangeBottom.bind(this)}/><br/>
+                        <label>Add Bottom Text</label>
+                        <Input className="form-control" placeholder='write bottom text' type="text" onChange={this.handleInputChangeBottom.bind(this)}/><br/>
                       </Form.Field>
                       <Form.Field>
                         <label>&nbsp;</label>
-                        <Button color='teal' type="submit" value="Create Meme"
-                            disabled={this.state.isLoading}
+                        <Button color='green' type="submit" value="Create Meme"
+                            disabled={this.state.isLoading || this.state.imageNotLoaded}
                         >
                           {this.state.isLoading ? "Processing..." : "Create Meme"}
                         </Button>

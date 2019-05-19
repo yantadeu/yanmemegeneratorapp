@@ -68,8 +68,6 @@ class MemesContainer extends React.Component {
   }
 
   render(){
-    let redirectToPreview = this.state.redirect ? <Redirect to ='/memes/preview' /> : null
-
     return(
         <div>
           <Switch>
@@ -92,7 +90,6 @@ class MemesContainer extends React.Component {
                 render={ () => <Preview meme={this.state.memes.slice(-1)[0]} onDelete={this.handleDeleteMeme.bind(this)} /> }
             />
           </Switch>
-          {redirectToPreview}
         </div>
     )
   }
