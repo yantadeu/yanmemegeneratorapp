@@ -20,6 +20,7 @@ class MemesContainer extends React.Component {
 
   componentDidMount(){
     const URL = url_api.API_URL + '/api/v1/memes';
+      console.log("URL: ", URL);
     axios.get(URL)
       .then(res => { this.setState({ memes: res.data }) })
   }

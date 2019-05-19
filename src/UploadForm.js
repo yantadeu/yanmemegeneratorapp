@@ -4,7 +4,7 @@ import request from 'superagent'
 import { Grid, Input, Form, Button} from 'semantic-ui-react'
 
 const CLOUDINARY_UPLOAD_PRESET = 'yzgn4oob';
-const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/devgo/image/upload'
+const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/devgo/image/upload';
 
 class UploadForm extends Component {
   constructor(props) {

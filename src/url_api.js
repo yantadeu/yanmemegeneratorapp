@@ -1,5 +1,5 @@
 const dev={
-    API_URL:"http://localhost:3000"
+    API_URL:"https://yanmemegeneratorserver.herokuapp.com"
 };
 
 const prod={
