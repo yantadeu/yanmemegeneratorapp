@@ -4,7 +4,7 @@ import request from 'superagent'
 import { Grid, Input, Form, Button} from 'semantic-ui-react'
 
 const CLOUDINARY_UPLOAD_PRESET = 'yzgn4oob';
-const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/devgo/image/upload';
+const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/devgo/image/upload'
 
 class UploadForm extends Component {
   constructor(props) {
@@ -13,25 +13,22 @@ class UploadForm extends Component {
     this.state = {
       uploadedFileCloudinaryUrl: '',
       text_top: '',
-      text_bottom: '',
-      // isLoadingImage: false,
-      // isLoading: false,
+      text_bottom: ''
     }
   }
 
   onImageDrop(files) {
     this.setState({
       uploadedFile: files[0]
-    });
+    })
 
     this.handleImageUpload(files[0])
   }
 
   handleImageUpload(file) {
-    // this.setState({ isLoadingImage: true });
     let upload = request.post(CLOUDINARY_UPLOAD_URL)
-                        .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
-                        .field('file', file);
+        .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+        .field('file', file);
     upload.end((err, response) => {
       if (err) {
         console.error(err);
@@ -41,10 +38,6 @@ class UploadForm extends Component {
         this.setState({
           uploadedFileCloudinaryUrl: response.body.secure_url
         })
-      }else{
-        // this.setState({
-        //   isLoadingImage: false
-        // })
       }
     })
   }
@@ -62,13 +55,12 @@ class UploadForm extends Component {
   }
 
   handleSubmit(e){
-    // this.setState({ isLoading: true });
-    e.preventDefault();
+    e.preventDefault()
     const meme={
       image_url: this.state.uploadedFileCloudinaryUrl,
       text_top: this.state.text_top,
       text_bottom: this.state.text_bottom
-    };
+    }
     this.props.onSubmit(meme)
   }
 
@@ -78,20 +70,20 @@ class UploadForm extends Component {
     let showTextBottom =  <div id='text_bottom'> {this.state.text_bottom.toUpperCase()} </div>
 
     return(
-      <div className="ui page grid main fluid">
-        <div className="row">
-          <div className="column padding-reset top-margin">
-            <Grid centered>
-              <Grid.Row container centered><br/><h1 className="top-margin">Create An Meme for D3 :)</h1></Grid.Row>
+        <div className="ui page grid main fluid">
+          <div className="row">
+            <div className="column padding-reset">
+              <Grid centered>
+                <Grid.Row container centered><br/><h1>Create An Meme!</h1></Grid.Row>
                 <Grid.Row verticalAlign='middle' centered>
                   <Form onSubmit={this.handleSubmit.bind(this)}>
                     <Grid centered>
-                    <Dropzone
-                      multiple={false}
-                      accept="image/*"
-                      onDrop={this.onImageDrop.bind(this)}>
+                      <Dropzone
+                          multiple={false}
+                          accept="image/*"
+                          onDrop={this.onImageDrop.bind(this)}>
                         <p>Drop files here, or click to select files</p>
-                    </Dropzone>
+                      </Dropzone>
                     </Grid><br/><br/><br/>
                     <Grid centered>
                       <Form.Field>
@@ -104,31 +96,26 @@ class UploadForm extends Component {
                       </Form.Field>
                       <Form.Field>
                         <label>&nbsp;</label>
-                        <Button color='teal' type="submit" value="Create Meme"
-                                // disabled={this.state.isLoading}
-                        >
-                          {/*{this.state.isLoading ? "Processing..." : "Create Meme"}*/}
-                        </Button>
+                        <Button color='teal' type="submit" value="Preview Meme">Preview Meme</Button>
                       </Form.Field>
                     </Grid>
                   </Form>
                 </Grid.Row>
-            </Grid> <br/><br/><br/><br/>
-            <div>
-              <Grid centered>
-                {/*<label>{this.state.isLoadingImage ? "Loading Image..." : ""}</label>*/}
-                <div className='wrapper'>
-                  { this.state.uploadedFileCloudinaryUrl === '' ? null : showImage }
-                <div className='display-text-center'>
-                  { this.state.text_top === '' ? null : showTextTop }
-                  { this.state.text_top === '' ? null : showTextBottom }
-                </div>
+              </Grid> <br/><br/><br/><br/>
+              <div>
+                <Grid centered>
+                  <div className='wrapper'>
+                    { this.state.uploadedFileCloudinaryUrl === '' ? null : showImage }
+                    <div className='display-text-center'>
+                      { this.state.text_top === '' ? null : showTextTop }
+                      { this.state.text_top === '' ? null : showTextBottom }
+                    </div>
+                  </div>
+                </Grid>
               </div>
-            </Grid>
-          </div>
+            </div>
           </div>
         </div>
-      </div>
     )
   }
 }
