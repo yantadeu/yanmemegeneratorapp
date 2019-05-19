@@ -82,7 +82,7 @@ class UploadForm extends Component {
         <div className="row">
           <div className="column padding-reset top-margin">
             <Grid centered>
-              <Grid.Row container centered><br/><br/><br/><h1>Create An Meme for D3 :)</h1></Grid.Row>
+              <Grid.Row container centered><br/><h1 className="top-margin">Create An Meme for D3 :)</h1></Grid.Row>
                 <Grid.Row verticalAlign='middle' centered>
                   <Form onSubmit={this.handleSubmit.bind(this)}>
                     <Grid centered>

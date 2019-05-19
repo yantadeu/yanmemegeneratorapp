@@ -10,9 +10,9 @@ const Preview = (props) => {
 
   return (
     <div>
-      <Grid centered className="top-margin bottom-margin">
+      <Grid centered className="bottom-margin">
         <Grid.Row container centered><br/>
-            <h1>PREVIEW D3 MEME</h1>
+            <h1 className="top-margin">PREVIEW D3 MEME</h1>
           </Grid.Row>
           <Grid.Row verticalAlign='middle' centered>
             <div className="wrapper">
