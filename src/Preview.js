@@ -1,21 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Grid, Button } from 'semantic-ui-react'
-import { Redirect } from 'react-router-dom'
+
 
 const Preview = (props) => {
   function handleDelete(){
     props.onDelete(props.meme.id)
-  }
-
-  function handleEdit(){
-    if (this.state.redirect) {
-      return <Redirect to={`/memes/${props.meme.id}/edit`}/>
-    }
-  }
-
-  function setRedirect(){
-    this.state.redirect = true;
   }
 
   return (
@@ -34,10 +24,8 @@ const Preview = (props) => {
             </div><br/>
           </Grid.Row>
             <Button basic color='orange' onClick={handleDelete}>Delete Meme</Button>
-            {handleEdit()}
-            <Button basic color='teal' onClick={setRedirect}>Edit Meme</Button>
-
-            <Link to='/memes'><Button color='teal'>Create Meme</Button></Link>
+            <Link to={`/memes/${props.meme.id}/edit`}><Button basic color='teal'>Edit Meme</Button></Link>
+            <Link to='/memes/new'><Button color='teal'>Create Meme</Button></Link>
           </Grid>
     </div>
   )

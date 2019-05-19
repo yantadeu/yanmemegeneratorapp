@@ -17,7 +17,7 @@ export default class NewMenu extends Component {
           <div className="column padding-reset top-margin">
             <div className="ui fixed menu navbar ">
               <Menu secondary >
-                <Menu.Item header>D3 Meme Generator</Menu.Item>
+                <Menu.Item header>D3 Meme Generator - Yan</Menu.Item>
                 <Link to={`/memes/`}><Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} /></Link>
                 <Link to={`/memes/new`}><Menu.Item name='new' active={activeItem === 'new'} onClick={this.handleItemClick} /></Link>
               </Menu>
