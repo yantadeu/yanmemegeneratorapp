@@ -13,7 +13,9 @@ class UploadForm extends Component {
     this.state = {
       uploadedFileCloudinaryUrl: '',
       text_top: '',
-      text_bottom: ''
+      text_bottom: '',
+      isLoading: false,
+      isLoadingImage: false
     }
   }
 
@@ -26,17 +28,22 @@ class UploadForm extends Component {
   }
 
   handleImageUpload(file) {
+    this.setState({ isLoadingImage: true });
     let upload = request.post(CLOUDINARY_UPLOAD_URL)
                         .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
                         .field('file', file);
     upload.end((err, response) => {
       if (err) {
         console.error(err);
+        this.setState({
+          isLoadingImage: false
+        })
       }
 
       if (response.body.secure_url !== '') {
         this.setState({
-          uploadedFileCloudinaryUrl: response.body.secure_url
+          uploadedFileCloudinaryUrl: response.body.secure_url,
+          isLoadingImage: false
         })
       }
     })
@@ -55,12 +62,13 @@ class UploadForm extends Component {
   }
 
   handleSubmit(e){
-    e.preventDefault()
+    e.preventDefault();
     const meme={
       image_url: this.state.uploadedFileCloudinaryUrl,
       text_top: this.state.text_top,
       text_bottom: this.state.text_bottom
-    }
+    };
+    this.setState({ isLoading: true });
     this.props.onSubmit(meme)
   }
 
@@ -73,8 +81,8 @@ class UploadForm extends Component {
       <div className="ui page grid main fluid">
         <div className="row">
           <div className="column padding-reset top-margin">
-            <Grid centered><br/>
-              <Grid.Row container centered><br/><h1>Create An Meme!</h1></Grid.Row>
+            <Grid centered>
+              <Grid.Row container centered><br/><br/><br/><h1>Create An Meme for D3 :)</h1></Grid.Row>
                 <Grid.Row verticalAlign='middle' centered>
                   <Form onSubmit={this.handleSubmit.bind(this)}>
                     <Grid centered>
@@ -96,7 +104,10 @@ class UploadForm extends Component {
                       </Form.Field>
                       <Form.Field>
                         <label>&nbsp;</label>
-                        <Button color='teal' type="submit" value="Preview Meme">Preview Meme</Button>
+                        <Button color='teal' type="submit" value="Create Meme"
+                                disabled={this.state.isLoading}>
+                          {this.state.isLoading ? "Loading..." : "Create Meme"}
+                        </Button>
                       </Form.Field>
                     </Grid>
                   </Form>
@@ -104,6 +115,7 @@ class UploadForm extends Component {
             </Grid> <br/><br/><br/><br/>
             <div>
               <Grid centered>
+                <label>{this.state.isLoadingImage ? "Loading Image..." : ""}</label>
                 <div className='wrapper'>
                   { this.state.uploadedFileCloudinaryUrl === '' ? null : showImage }
                 <div className='display-text-center'>
