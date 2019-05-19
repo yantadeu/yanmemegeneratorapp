@@ -63,7 +63,7 @@ class EditForm extends Component {
                   </Form.Field>
                   <Form.Field>
                     <label>&nbsp;</label>
-                    <Button color='teal' type="submit">Generate Meme</Button>
+                    <Button color='teal' type="submit">Update Meme</Button>
                   </Form.Field>
                 </Form>
                 </Grid>
