@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
-import {Link, Redirect} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 
 export default class NewMenu extends Component {
