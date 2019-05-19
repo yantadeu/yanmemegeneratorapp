@@ -11,10 +11,11 @@ import url_api from '../url_api'
 class MemesContainer extends React.Component {
 
   constructor(props){
-    super(props)
+    super(props);
     this.state = {
       memes: [],
-      redirect: false
+      redirect: false,
+      isLoading: false
     }
   }
 
@@ -25,6 +26,8 @@ class MemesContainer extends React.Component {
   }
 
   handleAddMeme(meme){
+
+    this.setState({ isLoading: true });
     axios.post(url_api.API_URL + '/api/v1/memes', {
       image_url: meme.image_url,
       text_top: meme.text_top,
@@ -33,12 +36,15 @@ class MemesContainer extends React.Component {
     .then(res => {
       this.setState( prevState => ({
         memes: [...prevState.memes, res.data],
-        redirect: true
+        redirect: true,
+        isLoading: false
       }))
     })
   }
 
   handleEditMeme(meme){
+
+    this.setState({ isLoading: true });
     axios.patch(url_api.API_URL + `/api/v1/memes/${meme.id}`, {
       image_url: meme.image_url,
       text_top: meme.text_top,
@@ -52,7 +58,7 @@ class MemesContainer extends React.Component {
           return me
         }
       })
-      this.setState({memes: updatedMemes})
+      this.setState({memes: updatedMemes, isLoading: false})
       this.props.history.push('/memes')
     })
   }

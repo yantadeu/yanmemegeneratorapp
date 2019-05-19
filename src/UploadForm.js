@@ -14,7 +14,6 @@ class UploadForm extends Component {
       uploadedFileCloudinaryUrl: '',
       text_top: '',
       text_bottom: '',
-      isLoading: false,
       isLoadingImage: false
     }
   }
@@ -22,7 +21,7 @@ class UploadForm extends Component {
   onImageDrop(files) {
     this.setState({
       uploadedFile: files[0]
-    })
+    });
 
     this.handleImageUpload(files[0])
   }
@@ -35,14 +34,15 @@ class UploadForm extends Component {
     upload.end((err, response) => {
       if (err) {
         console.error(err);
-        this.setState({
-          isLoadingImage: false
-        })
       }
 
       if (response.body.secure_url !== '') {
         this.setState({
           uploadedFileCloudinaryUrl: response.body.secure_url,
+          isLoadingImage: false
+        })
+      }else{
+        this.setState({
           isLoadingImage: false
         })
       }
@@ -68,7 +68,6 @@ class UploadForm extends Component {
       text_top: this.state.text_top,
       text_bottom: this.state.text_bottom
     };
-    this.setState({ isLoading: true });
     this.props.onSubmit(meme)
   }
 
