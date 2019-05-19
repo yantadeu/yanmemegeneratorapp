@@ -14,7 +14,8 @@ class UploadForm extends Component {
       uploadedFileCloudinaryUrl: '',
       text_top: '',
       text_bottom: '',
-      isLoadingImage: false
+      // isLoadingImage: false,
+      // isLoading: false,
     }
   }
 
@@ -27,7 +28,7 @@ class UploadForm extends Component {
   }
 
   handleImageUpload(file) {
-    this.setState({ isLoadingImage: true });
+    // this.setState({ isLoadingImage: true });
     let upload = request.post(CLOUDINARY_UPLOAD_URL)
                         .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
                         .field('file', file);
@@ -38,13 +39,12 @@ class UploadForm extends Component {
 
       if (response.body.secure_url !== '') {
         this.setState({
-          uploadedFileCloudinaryUrl: response.body.secure_url,
-          isLoadingImage: false
+          uploadedFileCloudinaryUrl: response.body.secure_url
         })
       }else{
-        this.setState({
-          isLoadingImage: false
-        })
+        // this.setState({
+        //   isLoadingImage: false
+        // })
       }
     })
   }
@@ -62,6 +62,7 @@ class UploadForm extends Component {
   }
 
   handleSubmit(e){
+    // this.setState({ isLoading: true });
     e.preventDefault();
     const meme={
       image_url: this.state.uploadedFileCloudinaryUrl,
@@ -104,8 +105,9 @@ class UploadForm extends Component {
                       <Form.Field>
                         <label>&nbsp;</label>
                         <Button color='teal' type="submit" value="Create Meme"
-                                disabled={this.state.isLoading}>
-                          {this.state.isLoading ? "Processing..." : "Create Meme"}
+                                // disabled={this.state.isLoading}
+                        >
+                          {/*{this.state.isLoading ? "Processing..." : "Create Meme"}*/}
                         </Button>
                       </Form.Field>
                     </Grid>
@@ -114,7 +116,7 @@ class UploadForm extends Component {
             </Grid> <br/><br/><br/><br/>
             <div>
               <Grid centered>
-                <label>{this.state.isLoadingImage ? "Loading Image..." : ""}</label>
+                {/*<label>{this.state.isLoadingImage ? "Loading Image..." : ""}</label>*/}
                 <div className='wrapper'>
                   { this.state.uploadedFileCloudinaryUrl === '' ? null : showImage }
                 <div className='display-text-center'>
