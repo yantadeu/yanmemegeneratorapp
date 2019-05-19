@@ -33,8 +33,8 @@ class MemesContainer extends React.Component {
         .then(res => {
           this.setState( prevState => ({
             memes: [...prevState.memes, res.data],
-            redirect: true
           }))
+            this.props.history.push('/memes/preview')
         })
   }
 
