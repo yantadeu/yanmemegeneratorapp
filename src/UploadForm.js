@@ -109,10 +109,10 @@ class UploadForm extends Component {
                       </Form.Field>
                       <Form.Field>
                         <label>&nbsp;</label>
-                        <Button color='green' type="submit" value="Create Meme"
+                        <Button color='green' type="submit" value="Create Meme" className={this.state.isLoading ? "loading" : ""}
                             disabled={this.state.isLoading || this.state.imageNotLoaded}
                         >
-                          {this.state.isLoading ? "Processing..." : "Create Meme"}
+                          Create Meme
                         </Button>
                       </Form.Field>
                     </Grid>

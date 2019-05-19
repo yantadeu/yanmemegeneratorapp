@@ -26,7 +26,7 @@ const Preview = (props) => {
             <Button basic color='orange' onClick={handleDelete}>Delete Meme</Button>
             <Link to={`/memes/${props.meme.id}/edit`}><Button basic color='teal'>Edit Meme</Button></Link>
             <Link to='/memes'><Button basic color='teal'>View Memes</Button></Link>
-          </Grid>
+      </Grid>
     </div>
   )
 }
