@@ -24,8 +24,8 @@ const Preview = (props) => {
             </div><br/>
           </Grid.Row>
             <Button basic color='orange' onClick={handleDelete}>Delete Meme</Button>
-            <Link to={`/memes/${props.meme.id}/edit`}><Button basic color='teal'>Edit Meme</Button></Link>
-            <Link to='/memes'><Button color='teal'>Create Meme</Button></Link>
+            <Redirect to={`/memes/${props.meme.id}/edit`}><Button basic color='teal'>Edit Meme</Button></Redirect>
+            <Redirect to='/memes'><Button color='teal'>Create Meme</Button></Redirect>
           </Grid>
     </div>
   )

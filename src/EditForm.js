@@ -45,7 +45,7 @@ class EditForm extends Component {
     return(
       <div className="ui page grid main fluid">
         <div className="row">
-          <div className="column padding-reset">
+          <div className="column padding-reset top-margin">
             <Grid centered>
               <Grid.Row container centered><br/>
                 <h1>Edit Your Meme</h1>

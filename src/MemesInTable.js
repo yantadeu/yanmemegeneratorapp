@@ -3,7 +3,6 @@ import { Grid } from 'semantic-ui-react'
 import MemesInRow from './MemesInRow'
 
 const MemesInTable = (props) => {
-  console.log('displayallmemesintable', props)
 
   return(
     <div className="column padding-reset top-margin">

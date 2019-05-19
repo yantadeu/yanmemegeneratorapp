@@ -73,7 +73,7 @@ class UploadForm extends Component {
       <div className="ui page grid main fluid">
         <div className="row">
           <div className="column padding-reset top-margin">
-            <Grid centered>
+            <Grid centered><br/>
               <Grid.Row container centered><br/><h1>Create An Meme!</h1></Grid.Row>
                 <Grid.Row verticalAlign='middle' centered>
                   <Form onSubmit={this.handleSubmit.bind(this)}>

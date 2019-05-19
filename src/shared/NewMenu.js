@@ -14,12 +14,12 @@ export default class NewMenu extends Component {
     return (
       <div className="ui page grid main">
         <div className="row">
-          <div className="column padding-reset">
+          <div className="column padding-reset top-margin">
             <div className="ui fixed menu navbar ">
               <Menu secondary >
                 <Menu.Item header>D3 Meme Generator</Menu.Item>
-                <Link to={`/memes/`}><Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} /></Link>
-                <Link to={`/memes/new`}><Menu.Item name='new' active={activeItem === 'new'} onClick={this.handleItemClick} /></Link>
+                <Redirect to={`/memes/`}><Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} /></Redirect>
+                <Redirect to={`/memes/new`}><Menu.Item name='new' active={activeItem === 'new'} onClick={this.handleItemClick} /></Redirect>
               </Menu>
             </div>
           </div>

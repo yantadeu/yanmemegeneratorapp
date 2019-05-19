@@ -51,18 +51,24 @@
 #text_top {
   z-index: 100;
   position: absolute;
-  left: 110px;
   top: 10px;
+  word-break: break-word;
+  left: 10%;
+  right: 10%;
+  line-height: 1.1;
 }
 
 #text_bottom {
   z-index: 100;
   position: absolute;
-  left: 90px;
   bottom: 25px;
+  word-break: break-word;
+  left: 10%;
+  right: 10%;
+  line-height: 1.1;
 }
 
 .preview-image {
   position: relative;
-  width: 100%;
+  max-width: 500px;
 }
