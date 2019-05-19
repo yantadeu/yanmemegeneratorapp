@@ -47,8 +47,8 @@ class EditForm extends Component {
         <div className="row">
           <div className="column padding-reset">
             <Grid centered>
-              <Grid.Row container centered><br/>
-                <h2 className="top-margin  ui dividing header"><br/>Edit Your Meme</h2>
+              <Grid.Row container centered>
+                <h2 className="top-margin ui dividing header">Edit Your Meme</h2>
               </Grid.Row>
               <Grid.Row verticalAlign='middle' centered>
                 <Grid centered>
